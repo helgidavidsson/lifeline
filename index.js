@@ -479,7 +479,12 @@ function loadWork() {
     
     
     var workPercentage = (yearsWorked / userAge.innerText) * 100
+	
+var workLabel = document.getElementById('workLabel')
 
+if (userWork.value == 0) {
+	workLabel.style.display = 'none'
+}
 
     var workProgress = document.getElementById('workProgress').style.width = workPercentage + '%'
     
