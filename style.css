@@ -198,6 +198,11 @@ label {
     background-color: rgba(5, 5, 49, 0.548);
   }
 
+  .work {
+    width: 0%;
+    background-color: blue;
+  }
+
 
 
 

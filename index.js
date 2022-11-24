@@ -229,7 +229,7 @@ var userAge = document.getElementById('userAge')
 
 var displayUserPercent = document.getElementById('displayUserPercent')
 
-var userSleep = document.getElementById('userSleep')
+
 
 
 
@@ -399,11 +399,11 @@ dateOfBirth.addEventListener('change', () => {
  
 })
 
-
+var userSleep = document.getElementById('userSleep')
 userSleep.addEventListener('change', () => {
     var dateValue = dateOfBirth.value
    
-  
+    
     var dateOfBirthdd = dateValue.split('-')[2]
     var dateOfBirthmm = dateValue.split('-')[1]
     var dateOfBirthyyyy = dateValue.split('-')[0]
@@ -416,11 +416,12 @@ userSleep.addEventListener('change', () => {
 
    
     var totalDaysLived = userAgeYears * 365.24 + daysThisYear
-
+    var totalHoursLived = totalDaysLived * 24
 
     var sleepProgress = document.getElementById('sleepProgress')
 
-    var totalHoursLived = totalDaysLived * 24
+
+    
     for (let i=1; i < 13; i++) {
         if (userSleep.value == [i]) {
             var sleepPercent = ([i] * totalDaysLived / totalHoursLived) * 100
@@ -428,11 +429,84 @@ userSleep.addEventListener('change', () => {
             console.log(sleepPercent)
             sleepLabel.style.display = 'block'
             
+        } else if( userSleep.value == "0") {
+            sleepProgress.style.width = '0%'
+            sleepLabel.style.display = 'none'
         }
     }
     
 
 })
+
+var userWork = document.getElementById('userWork')
+var workStart = document.getElementById('workStart') 
+
+userWork.addEventListener('change', () => {
+    loadWork()
+})
+
+
+workStart.addEventListener('change', () => {
+    loadWork()
+})
+
+
+function loadWork() {
+
+
+    var dateValue = dateOfBirth.value
+   
+    
+    var dateOfBirthdd = dateValue.split('-')[2]
+    var dateOfBirthmm = dateValue.split('-')[1]
+    var dateOfBirthyyyy = dateValue.split('-')[0]
+
+    var userAgeYears = todayyyyy - dateOfBirthyyyy
+    var userAgeMonths = todaymm - dateOfBirthmm + 1 //+1 bc january starts at 0
+    var userAgeDays = todaydd - dateOfBirthdd
+
+    var daysThisYear = 30.4375 * userAgeMonths + userAgeDays
+
+
+
+    var userAgeWeeks = (userAge.innerText * 365.24) / 7
+
+    var workStartSince = (todayyyyy - workStart.value + (todaymm / 12)) // in years
+
+    var workHours = userWork.value / 168 // Fraction of work hours per week
+
+    var yearsWorked = (workStartSince * workHours)
+    
+    
+    var workPercentage = (yearsWorked / userAge.innerText) * 100
+
+
+    var workProgress = document.getElementById('workProgress').style.width = workPercentage + '%'
+    
+
+
+    
+
+    
+
+    
+
+    
+
+
+
+   
+  
+    
+   
+    
+
+
+   
+    
+}
+
+
 
 
 
