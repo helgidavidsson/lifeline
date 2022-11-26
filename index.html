@@ -13,7 +13,7 @@
 
 
 	<section class="box-Sec">
-		
+		<h1>Basic info</h1>
 		<div>
 			<h2>Select your country</h2>
 
@@ -230,14 +230,14 @@
 			<h2>Select your gender</h2>
 
 			<div class="row button-Sec">
-				<div class="col gender-Back " id="femaleDiv">
-					<button class="button " id="female" value="female" onclick="findLifeEx()"><img src="assests/female-icon-96.png"></button>
+				<div class="col gender " id="femaleDiv">
+					<button class="button " id="female" value="female" onclick="findLifeEx()"><img class="gender-img" src="assests/female-icon-96.png"></button>
 					<label class="label">Female</label>
 				</div>
 				
 				
-				<div class="col gender-Back " id="maleDiv">
-					<button class="button " id="male" value="male" onclick="findLifeEx()"><img src="assests/male-icon-96.png"></button>
+				<div class="col gender " id="maleDiv">
+					<button class="button" id="male" value="male" onclick="findLifeEx()"><img class="gender-img" src="assests/male-icon-96.png"></button>
 					<label class="label">Male</label>
 				</div>
 			</div>
@@ -267,7 +267,7 @@
 	
 		<div class="col">
 			<h2>Average sleep</h2>
-			<p><select class="select" id="userSleep" >
+			<p><select class="" id="userSleep" >
 				<option value="0">--</option>
 				<option value="1">1 hour</option>
 				<option value="2">2 hours</option>
@@ -289,7 +289,7 @@
 
 		<div>
 			<h2>Work</h2>
-			<select name="Work" id="userWork" class="select" >
+			<select name="Work" id="userWork" class="" >
 				<option value="0">--</option>
 				<option value="1">1 hour</option>
 				<option value="2">2 hours</option>
@@ -376,7 +376,8 @@
 
 			</select>
 
-			<select id="workStart" class="select">
+			<select id="workStart" class="">
+			<option value="0">--</option>
 			<option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
@@ -503,6 +504,27 @@
 			</select>
 
 		</div>
+
+
+		<div>
+			<h2>Screen time</h2>
+			<p><select name="ScreenTime" id="userScreenTime">
+				<option value="0">--</option>
+				<option value="1">1 hour</option>
+				<option value="2">2 hours</option>
+				<option value="3">3 hours</option>
+				<option value="4">4 hours</option>
+				<option value="5">5 hours</option>
+				<option value="6">6 hours</option>
+				<option value="7">7 hours</option>
+				<option value="8">8 hours</option>
+				<option value="9">9 hours</option>
+				<option value="10">10 hours</option>
+				<option value="11">11 hours</option>
+				<option value="12">12 hours</option>
+			</select>
+		a day</p>
+		</div>
 		
 	</section>
 
@@ -517,7 +539,37 @@
 
 
 
-<section>
+
+
+<section class="box-Sec-Stat ">
+
+	<tr>
+		<th>
+			<h2 class="statLabel">Your life expextancy is </h2>
+			
+			<h1 class="statNum" id="userLifeEx"></h1>
+		</th>
+	</tr>
+
+	<tr>
+		<th>
+			<h2 class="statLabel">Your current age is </h2> 
+			
+			<h1 class="statNum" id="userAge"></h1>
+		</th>
+	</tr>
+	
+
+	<div class="stat-Sec">
+	 
+		
+
+	</div>
+
+</section>
+
+
+<section class="container-box">
 
 	
 	<div class="container ">
@@ -535,6 +587,10 @@
 					<p id="workLabel" class="progressLabel" style="display:none">Work</p>
 	
 				</div>
+				<div class="progress-bar screenTime" id="screenTimeProgress"> 
+					<p id="screenTimeLabel" class="progressLabel" style="display:none">Screen Time</p>
+	
+				</div>
 			
 		  </div>
 
@@ -543,7 +599,7 @@
 
 		<div class="labelRow">
 			
-			<p id="displayUserPercent" class="progressLabel"></p>
+			<p id="displayUserPercent" class="percent"></p>
 
 
 		</div>
@@ -556,32 +612,6 @@
 
 
 </section>
-
-<section class="box-Sec ">
-
-	<tr>
-		<th>
-			<h2 class="statLabel row">Your life expextancy is </h2>
-			<h1 class="statNum" id="userLifeEx"></h1>
-		</th>
-	</tr>
-
-	<tr>
-		<th>
-			<h2 class="statLabel">Your current age is </h2> 
-			<h1 class="statNum" id="userAge"></h1>
-		</th>
-	</tr>
-	
-
-	<div class="stat-Sec">
-	 
-		
-
-	</div>
-
-</section>
-
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script> <script src="index.js"></script>
 

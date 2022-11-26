@@ -1,23 +1,48 @@
+
 body {
     background-color: rgb(66, 66, 66);
     color: white;
+    max-height: 100%;
     
 }
 
 h2 {
     text-align: center;
+    font-size: 16px;
 }
 
 
 .box-Sec {
     background-color: azure;
-    height: 200px;
-    width: 95%;
+    height: fit-content;
+    width: fit-content;
     padding: 2%;
     background-color: rgb(32, 32, 32);
     display: flex;
     justify-content: space-around;
-    border: 10px solid  rgb(66, 66, 66)
+    border: 10px solid  rgb(66, 66, 66);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    
+    
+}
+
+.box-Sec-Stat {
+    background-color: azure;
+    height: fit-content;
+    width: fit-content;
+    padding: 2%;
+    background-color: rgb(32, 32, 32);
+    display: flex;
+    justify-content: space-around;
+    border: 10px solid  rgb(66, 66, 66);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
 
     
     
@@ -39,13 +64,12 @@ h2 {
 .select {
     border-width: 4px;
     border-color: #8080802c;
-    height: 50px;
+    height: fit-content;
     width: fit-content;
-    font-size: 24px;
+    font-size: 16px;
     text-align: center;
     background-color: rgb(66, 66, 66);
     color: white;
-    
     border-radius: 10px;
 
 }
@@ -103,17 +127,24 @@ label {
 
 .statNum {
     margin: 0;
-    font-size: 64px;
+    font-size: 42px;
     display: flex;
     justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
 
     
 }
 
 
 
-.gender-Back {
+.gender {
     opacity: 0.3;
+    
+}
+
+.gender-img {
+    height: 40px;
 }
 
 
@@ -137,9 +168,11 @@ label {
 
   
   .container {
-    margin: 60px auto;
+    margin: 25px auto;
     width: 90%;
     text-align: center;
+    padding-top: 30px;
+    position: sticky;
   }
   
   .container .progress {
@@ -203,6 +236,12 @@ label {
     background-color: blue;
   }
 
+  .screenTime {
+    width: 0%;
+    background-color: red;
+    
+  }
+
 
 
 
@@ -222,14 +261,30 @@ label {
 
 
 .progressLabel {
-    display: block;
-    padding-top: 4px;
-    margin-top: 0px;
+    margin-top: 4px;
+    margin-bottom: auto;
     align-items: center;
+    white-space: nowrap;
+    font-size: 14px;
+
+}
+
+.percent {
+    margin-top: 8px;
+    align-items: center;
+    white-space: nowrap;
 
 }
 
 .labelRow {
     display: flex;
     flex-direction: row;
+}
+
+.container-box {
+    background-color:rgba(0, 0, 0, 0.356);
+    position: sticky;
+    height: 100px
+    
+    
 }

@@ -484,33 +484,55 @@ var workLabel = document.getElementById('workLabel')
 
 if (userWork.value == 0) {
 	workLabel.style.display = 'none'
+} else {
+    workLabel.style.display = 'block'
 }
 
     var workProgress = document.getElementById('workProgress').style.width = workPercentage + '%'
     
-
-
-    
-
-    
-
-    
-
-    
-
-
-
-   
-  
-    
-   
-    
-
-
-   
     
 }
 
+var screenTimeLabel = document.getElementById('screenTimeLabel')
+var userScreenTime = document.getElementById('userScreenTime')
+userScreenTime.addEventListener('change', () => {
+    var dateValue = dateOfBirth.value
+   
+    
+    var dateOfBirthdd = dateValue.split('-')[2]
+    var dateOfBirthmm = dateValue.split('-')[1]
+    var dateOfBirthyyyy = dateValue.split('-')[0]
+
+    var userAgeYears = todayyyyy - dateOfBirthyyyy
+    var userAgeMonths = todaymm - dateOfBirthmm + 1 //+1 bc january starts at 0
+    var userAgeDays = todaydd - dateOfBirthdd
+
+   var daysThisYear = 30.4375 * userAgeMonths + userAgeDays
+
+   
+    var totalDaysLived = userAgeYears * 365.24 + daysThisYear
+    var totalHoursLived = totalDaysLived * 24
+
+    var screenTimeProgress = document.getElementById('screenTimeProgress')
+
+
+    
+    for (let i=1; i < 13; i++) {
+        if (userScreenTime.value == [i]) {
+            var screenTimePercent = ([i] * totalDaysLived / totalHoursLived) * 100
+            screenTimeProgress.style.width = screenTimePercent + '%'
+            screenTimeLabel.style.display = 'block'
+            
+
+            
+        } else if( userScreenTime.value == "0") {
+            screenTimeProgress.style.width = '0%'
+            screenTimeLabel.style.display = 'none'
+        }
+    }
+    
+
+})
 
 
 
