@@ -1,3 +1,5 @@
+
+
 var exData = 
     
 [
@@ -495,44 +497,59 @@ if (userWork.value == 0) {
 
 var screenTimeLabel = document.getElementById('screenTimeLabel')
 var userScreenTime = document.getElementById('userScreenTime')
+var userFirstPhone = document.getElementById('userFirstPhone')
 userScreenTime.addEventListener('change', () => {
-    var dateValue = dateOfBirth.value
-   
-    
-    var dateOfBirthdd = dateValue.split('-')[2]
-    var dateOfBirthmm = dateValue.split('-')[1]
-    var dateOfBirthyyyy = dateValue.split('-')[0]
-
-    var userAgeYears = todayyyyy - dateOfBirthyyyy
-    var userAgeMonths = todaymm - dateOfBirthmm + 1 //+1 bc january starts at 0
-    var userAgeDays = todaydd - dateOfBirthdd
-
-   var daysThisYear = 30.4375 * userAgeMonths + userAgeDays
-
-   
-    var totalDaysLived = userAgeYears * 365.24 + daysThisYear
-    var totalHoursLived = totalDaysLived * 24
-
-    var screenTimeProgress = document.getElementById('screenTimeProgress')
-
-
-    
-    for (let i=1; i < 13; i++) {
-        if (userScreenTime.value == [i]) {
-            var screenTimePercent = ([i] * totalDaysLived / totalHoursLived) * 100
-            screenTimeProgress.style.width = screenTimePercent + '%'
-            screenTimeLabel.style.display = 'block'
-            
-
-            
-        } else if( userScreenTime.value == "0") {
-            screenTimeProgress.style.width = '0%'
-            screenTimeLabel.style.display = 'none'
-        }
-    }
-    
+    findScreenTime()
 
 })
+
+userFirstPhone.addEventListener('change', () => {
+    findScreenTime()
+})
+
+function findScreenTime() {
+    var dateValue = dateOfBirth.value
+    
+        
+        var dateOfBirthdd = dateValue.split('-')[2]
+        var dateOfBirthmm = dateValue.split('-')[1]
+        var dateOfBirthyyyy = dateValue.split('-')[0]
+
+        var userAgeYears = todayyyyy - dateOfBirthyyyy
+        var userAgeMonths = todaymm - dateOfBirthmm + 1 //+1 bc january starts at 0
+        var userAgeDays = todaydd - dateOfBirthdd
+
+        var daysThisYear = 30.4375 * userAgeMonths + userAgeDays
+
+    
+        var totalDaysLived = userAgeYears * 365.24 + daysThisYear
+
+        var totalHoursLived = totalDaysLived * 24
+
+        var yearsSincePhone = userFirstPhone.value - dateOfBirthyyyy
+        var  daysSincePhone = totalDaysLived - yearsSincePhone * 365.24  
+        var hoursSincePhone = daysSincePhone * 24
+
+
+        var screenTimeProgress = document.getElementById('screenTimeProgress')
+
+
+        
+        for (let i=1; i < 13; i++) {
+            if (userScreenTime.value == [i]) {
+                var screenTimePercent = ([i] * daysSincePhone / hoursSincePhone) * 100
+                screenTimeProgress.style.width = screenTimePercent + '%'
+                screenTimeLabel.style.display = 'block'
+                
+
+                
+            } else if( userScreenTime.value == "0") {
+                screenTimeProgress.style.width = '0%'
+                screenTimeLabel.style.display = 'none'
+            }
+        }
+    
+}
 
 
 
