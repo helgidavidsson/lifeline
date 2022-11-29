@@ -537,11 +537,14 @@ function findScreenTime() {
         
         for (let i=1; i < 13; i++) {
             if (userScreenTime.value == [i]) {
-                var screenTimePercent = ([i] * daysSincePhone / hoursSincePhone) * 100
+                var screenTimePercent = ([i] * daysSincePhone) / totalHoursLived * 100
                 screenTimeProgress.style.width = screenTimePercent + '%'
                 screenTimeLabel.style.display = 'block'
                 
-
+                console.log(daysSincePhone)
+                console.log(hoursSincePhone)
+                console.log(screenTimePercent)
+                console.log(userFirstPhone.value)
                 
             } else if( userScreenTime.value == "0") {
                 screenTimeProgress.style.width = '0%'
