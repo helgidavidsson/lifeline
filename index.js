@@ -217,6 +217,9 @@ var exData =
     ["Zimbabwe",178,62.16,63.66,60.39  ]
   ]
 
+
+
+
 const country = document.getElementById('country')
 
 const female = document.getElementById('female')
@@ -439,6 +442,8 @@ userSleep.addEventListener('change', () => {
     
 
 })
+
+
 
 var userWork = document.getElementById('userWork')
 var workStart = document.getElementById('workStart') 

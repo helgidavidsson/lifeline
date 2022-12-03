@@ -168,11 +168,15 @@ label {
 
   
   .container {
-    margin: 25px auto;
     width: 90%;
-    text-align: center;
-    padding-top: 30px;
-    position: sticky;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+
+    
   }
   
   .container .progress {
@@ -266,6 +270,7 @@ label {
     align-items: center;
     white-space: nowrap;
     font-size: 14px;
+    
 
 }
 
@@ -283,8 +288,10 @@ label {
 
 .container-box {
     background-color:rgba(0, 0, 0, 0.356);
-    position: sticky;
-    height: 100px
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    bottom: 0;
     
     
 }
